@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | EXOTICA Exotic Car Rental</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .dashboard-wrapper { display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background: var(--secondary); transition: var(--transition); z-index: 1001; }
+        .main-content { flex: 1; background: #f4f4f4; padding: 2rem; transition: var(--transition); }
+        body.dark-mode .main-content { background: #000; }
+        .sidebar-link { display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem; color: rgba(255,255,255,0.7); text-decoration: none; border-left: 4px solid transparent; }
+        .sidebar-link.active { color: var(--primary); background: rgba(201, 161, 74, 0.1); border-color: var(--primary); }
+        .sidebar-link:hover { color: white; background: rgba(255,255,255,0.05); }
+
+        @media (max-width: 1100px) {
+            .sidebar { position: fixed; transform: translateX(-100%); width: 100%; height: 100%; }
+            .sidebar.active { transform: translateX(0); }
+            .dashboard-nav-mobile { display: flex !important; }
+        }
+        .dashboard-nav-mobile { display: none; align-items: center; justify-content: space-between; padding: 1rem; background: var(--secondary); margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="p-4 border-bottom border-secondary mb-4 text-center">
+                <img src="assets/images/logo.svg" alt="EXOTICA" width="120">
+            </div>
+            <nav>
+                <a href="#" class="sidebar-link active" data-target="analytics"><i class="bi bi-grid-fill"></i> Analytics</a>
+                <a href="#" class="sidebar-link" data-target="bookings"><i class="bi bi-calendar-check"></i> Bookings</a>
+                <a href="#" class="sidebar-link" data-target="cars"><i class="bi bi-car-front"></i> Fleet Mgmt</a>
+                <a href="#" class="sidebar-link" data-target="users"><i class="bi bi-people"></i> Users</a>
+                <a href="#" class="sidebar-link" data-target="reports"><i class="bi bi-graph-up-arrow"></i> Reports</a>
+                <div class="mt-5 pt-5">
+                    <a href="index.html" class="sidebar-link text-danger"><i class="bi bi-box-arrow-left"></i> Logout</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Toggle -->
+            <div class="dashboard-nav-mobile">
+                <img src="assets/images/logo.svg" alt="LOGO" width="80">
+                <button class="btn text-white fs-2" id="sidebarToggle"><i class="bi bi-list"></i></button>
+            </div>
+
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <div>
+                    <h2 class="m-0">System <span class="text-gold text-uppercase">Overview</span></h2>
+                    <p class="small opacity-50">Welcome back, Administrator</p>
+                </div>
+                <div class="d-flex gap-3 align-items-center">
+                    <div id="theme-toggle" class="theme-toggle fs-4"><i class="bi bi-moon-fill"></i></div>
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=C9A14A&color=fff" class="rounded-circle" width="45" alt="Avatar">
+                </div>
+            </div>
+
+            <!-- Sections Container -->
+            <div id="dashboard-sections">
+                <!-- Analytics Section -->
+                <div class="section-content" id="analytics">
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-3">
+                            <div class="p-4 bg-white dark:bg-dark border border-secondary shadow-sm">
+                                <p class="small text-muted mb-1">Total Revenue</p>
+                                <h3 class="m-0 text-gold">$128,450</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-4 bg-white dark:bg-dark border border-secondary shadow-sm">
+                                <p class="small text-muted mb-1">Active Bookings</p>
+                                <h3 class="m-0">24</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-4 bg-white dark:bg-dark border border-secondary shadow-sm">
+                                <p class="small text-muted mb-1">Fleet Utilization</p>
+                                <h3 class="m-0">82%</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-4 bg-white dark:bg-dark border border-secondary shadow-sm">
+                                <p class="small text-muted mb-1">Pending KYCs</p>
+                                <h3 class="m-0 text-danger">12</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark border border-secondary p-4 mb-4">
+                        <h4 class="mb-4">Recent Bookings</h4>
+                        <div class="table-responsive">
+                            <table class="table align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Car Model</th>
+                                        <th>User</th>
+                                        <th>Duration</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-bold">Ferrari 488 Pista</td>
+                                        <td>John Doe</td>
+                                        <td>3 Days</td>
+                                        <td>$2,550</td>
+                                        <td><span class="badge bg-success">Confirmed</span></td>
+                                        <td><button class="btn btn-sm btn-outline-secondary">Manage</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Lambo Huracan</td>
+                                        <td>Jane Smith</td>
+                                        <td>1 Day</td>
+                                        <td>$950</td>
+                                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                        <td><button class="btn btn-sm btn-outline-secondary">Manage</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for other sections -->
+                <div class="section-content d-none" id="bookings"><h3>Bookings Management Content</h3></div>
+                <div class="section-content d-none" id="cars"><h3>Fleet Inventory Content</h3></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS (Shared) -->
+    <script src="assets/js/main.js"></script>
+    <!-- Dashboard Specific JS -->
+    <script>
+        document.getElementById('sidebarToggle')?.addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+
+        // Tab Switching Logic
+        document.querySelectorAll('.sidebar-link[data-target]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = link.getAttribute('data-target');
+                
+                // Update Sidebar
+                document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
+                // Update Sections
+                document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('d-none'));
+                document.getElementById(target).classList.remove('d-none');
+
+                // Close sidebar on mobile
+                if (window.innerWidth <= 1100) {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

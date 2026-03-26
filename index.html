@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXOTICA | Ultra-Luxury Exotic Car Rental</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container nav-wrapper">
+            <!-- Logo -->
+            <a href="index.html" class="logo-centered">
+                <img src="assets/images/logo.svg" alt="EXOTICA Logo" width="150">
+            </a>
+
+            <!-- Desktop Nav (>1100px) -->
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="cars.html" class="nav-link">Fleet</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="blog.html" class="nav-link">Journal</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="header-actions">
+                <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+                <div class="theme-toggle" id="theme-toggle">
+                    <i class="bi bi-moon-fill"></i>
+                </div>
+            </div>
+
+            <!-- Hamburger (<=1100px) -->
+            <button class="hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (Offcanvas) -->
+    <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="mobileMenu">
+        <div class="offcanvas-header">
+            <img src="assets/images/logo.svg" alt="EXOTICA" width="120">
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav gap-3">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="cars.html" class="nav-link">Fleet</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item mt-4">
+                    <a href="login.html" class="btn btn-primary w-100">Login / Signup</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section p-0 position-relative vh-100 d-flex align-items-center overflow-hidden">
+            <!-- Background Video Placeholder (Visual only) -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" class="w-100 h-100 object-fit-cover opacity-50" alt="Hero Background">
+            </div>
+            
+            <div class="container position-relative text-center text-white">
+                <h4 class="text-gold mb-3">The Peak of Automotive Luxury</h4>
+                <h1 class="display-1 fw-bold mb-4">DRIVE THE <br><span class="text-gold">EXTRAORDINARY</span></h1>
+                <p class="lead mb-5 mx-auto" style="max-width: 600px;">Experience the thrill of elite engineering. Book your supercar today and transform your journey into an unforgettable masterpiece.</p>
+                <div class="d-flex gap-3 justify-content-center">
+                    <a href="pages/cars.html" class="btn btn-primary btn-lg">Browse Fleet</a>
+                    <a href="pages/contact.html" class="btn btn-outline text-white btn-lg">Enquire Now</a>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4 text-white opacity-50">
+                <i class="bi bi-mouse fs-3"></i>
+            </div>
+        </section>
+
+        <!-- Brands Section -->
+        <section class="py-5 bg-deep border-bottom border-secondary">
+            <div class="container">
+                <div class="row align-items-center opacity-50 grayscale">
+                    <div class="col-6 col-md-2 text-center py-3"><h3 class="m-0">FERRARI</h3></div>
+                    <div class="col-6 col-md-2 text-center py-3"><h3 class="m-0">LAMBO</h3></div>
+                    <div class="col-6 col-md-2 text-center py-3"><h3 class="m-0">PORSCHE</h3></div>
+                    <div class="col-6 col-md-2 text-center py-3"><h3 class="m-0">ROLLS</h3></div>
+                    <div class="col-6 col-md-2 text-center py-3"><h3 class="m-0">MCLAREN</h3></div>
+                    <div class="col-6 col-md-2 text-center py-3"><h3 class="m-0">BUGATTI</h3></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Cars -->
+        <section class="featured-cars">
+            <div class="container">
+                <div class="row mb-5 align-items-end">
+                    <div class="col-md-6">
+                        <h4 class="text-gold">Elite Selection</h4>
+                        <h2 class="m-0">Featured Masterpieces</h2>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="cars.html" class="text-gold text-decoration-none fw-bold">VIEW ALL CARS <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Car 1 -->
+                    <div class="col-md-4">
+                        <div class="car-card p-0 h-100">
+                            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="img-fluid w-100" alt="Ferrari 488">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted small">Supertcars</span>
+                                    <span class="text-gold fw-bold">$850/Day</span>
+                                </div>
+                                <h4>Ferrari 488 Pista</h4>
+                                <div class="row g-2 mb-4">
+                                    <div class="col-4 small text-muted"><i class="bi bi-lightning"></i> 720 HP</div>
+                                    <div class="col-4 small text-muted"><i class="bi bi-speedometer2"></i> 2.8s</div>
+                                    <div class="col-4 small text-muted"><i class="bi bi-gear"></i> Auto</div>
+                                </div>
+                                <a href="car-details.html" class="btn btn-primary w-100">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car 2 -->
+                    <div class="col-md-4">
+                        <div class="car-card p-0 h-100">
+                            <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf048?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="img-fluid w-100" alt="Lamborghini">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted small">Exotics</span>
+                                    <span class="text-gold fw-bold">$950/Day</span>
+                                </div>
+                                <h4>Lambo Huracán EVO</h4>
+                                <div class="row g-2 mb-4">
+                                    <div class="col-4 small text-muted"><i class="bi bi-lightning"></i> 640 HP</div>
+                                    <div class="col-4 small text-muted"><i class="bi bi-speedometer2"></i> 2.9s</div>
+                                    <div class="col-4 small text-muted"><i class="bi bi-gear"></i> Auto</div>
+                                </div>
+                                <a href="car-details.html" class="btn btn-primary w-100">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car 3 -->
+                    <div class="col-md-4">
+                        <div class="car-card p-0 h-100">
+                            <img src="https://images.unsplash.com/photo-1631214503951-375100d24275?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="img-fluid w-100" alt="Rolls-Royce">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted small">Luxury</span>
+                                    <span class="text-gold fw-bold">$1,200/Day</span>
+                                </div>
+                                <h4>Rolls-Royce Ghost</h4>
+                                <div class="row g-2 mb-4">
+                                    <div class="col-4 small text-muted"><i class="bi bi-lightning"></i> 563 HP</div>
+                                    <div class="col-4 small text-muted"><i class="bi bi-speedometer2"></i> 4.8s</div>
+                                    <div class="col-4 small text-muted"><i class="bi bi-gear"></i> Auto</div>
+                                </div>
+                                <a href="car-details.html" class="btn btn-primary w-100">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section bg-deep text-white text-center">
+            <div class="container py-5">
+                <h2 class="mb-4">Ready to feel the <span class="text-gold">Adrenaline?</span></h2>
+                <p class="lead mb-5 opacity-75">Join our exclusive club and get early access to new fleet additions.</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control bg-dark border-secondary text-white py-3 px-4" placeholder="Enter your email">
+                            <button class="btn btn-primary px-5" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Brand -->
+                <div class="col-md-4 footer-column">
+                    <img src="assets/images/logo.svg" alt="EXOTICA" width="150" class="mb-4">
+                    <p class="opacity-50">Providing unparalleled luxury car rental experiences since 2018. Based in the heart of the city, serving worldwide elitists.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+                <!-- Company -->
+                <div class="col-md-2 footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Our Journal</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <!-- Support -->
+                <div class="col-md-2 footer-column">
+                    <h4>Fleet</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Supercars</a></li>
+                        <li><a href="#">Luxury Sedans</a></li>
+                        <li><a href="#">Sport SUVs</a></li>
+                        <li><a href="#">Electric Fleet</a></li>
+                    </ul>
+                </div>
+                <!-- Newsletter -->
+                <div class="col-md-4 footer-column">
+                    <h4>Office</h4>
+                    <p class="opacity-50 mb-4">123 Luxury Drive, Beverly Hills<br>California, CA 90210</p>
+                    <p class="opacity-50">Support: +1 (555) 000-EXOTIC<br>Email: bookings@exotica.com</p>
+                </div>
+            </div>
+            <hr class="my-5 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="m-0 opacity-50 small">&copy; 2026 EXOTICA CAR RENTAL. ALL RIGHTS RESERVED.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="m-0 opacity-50 small">DESIGNED FOR EXTRAORDINARY PERFORMANCE.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
