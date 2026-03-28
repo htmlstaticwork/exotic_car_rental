@@ -1,0 +1,54 @@
+<!-- Common Header Component -->
+<header class="main-header scrolled">
+    <div class="container nav-wrapper">
+        <!-- Logo -->
+        <a href="index.html" class="logo-centered">
+            <img src="assets/images/logo.svg" alt="EXOTICA Logo" width="150">
+        </a>
+
+        <!-- Desktop Nav (>1100px) -->
+        <nav class="desktop-nav">
+            <a href="index.html" class="nav-link" data-page="home-1">Home 1</a>
+            <a href="home-2.html" class="nav-link" data-page="home-2">Home 2</a>
+            <a href="cars.html" class="nav-link" data-page="cars">Fleet</a>
+            <a href="services.html" class="nav-link" data-page="services">Services</a>
+            <a href="about.html" class="nav-link" data-page="about">About</a>
+            <a href="blog.html" class="nav-link" data-page="blog">Journal</a>
+            <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="header-actions">
+            <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+            <div class="theme-toggle" id="theme-toggle">
+                <i class="bi bi-moon-fill"></i>
+            </div>
+        </div>
+
+        <!-- Hamburger (<=1100px) -->
+        <button class="hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+            <i class="bi bi-list"></i>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Menu (Offcanvas) -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+        <img src="assets/images/logo.svg" alt="EXOTICA" width="120">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav gap-3">
+            <li class="nav-item"><a href="index.html" class="nav-link" data-page="home-1">Home 1</a></li>
+            <li class="nav-item"><a href="home-2.html" class="nav-link" data-page="home-2">Home 2</a></li>
+            <li class="nav-item"><a href="cars.html" class="nav-link" data-page="cars">Fleet</a></li>
+            <li class="nav-item"><a href="services.html" class="nav-link" data-page="services">Services</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link" data-page="about">About</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+            <li class="nav-item mt-4">
+                <a href="login.html" class="btn btn-primary w-100">Login / Signup</a>
+            </li>
+        </ul>
+    </div>
+</div>

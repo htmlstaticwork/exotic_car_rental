@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,55 +10,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-    <!-- Header (Identical) -->
-    <header class="main-header">
-        <div class="container nav-wrapper">
-            <a href="index.html" class="logo-centered">
-                <img src="assets/images/logo.svg" alt="EXOTICA Logo" width="150">
-            </a>
-            <nav class="desktop-nav">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="cars.html" class="nav-link">Fleet</a>
-                <a href="about.html" class="nav-link active">About</a>
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="blog.html" class="nav-link">Journal</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </nav>
-            <div class="header-actions">
-                <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
-                <div class="theme-toggle" id="theme-toggle">
-                    <i class="bi bi-moon-fill"></i>
-                </div>
-            </div>
-            <button class="hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-                <i class="bi bi-list"></i>
-            </button>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
-    <!-- Mobile Menu -->
-    <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="mobileMenu">
-        <div class="offcanvas-header">
-            <img src="assets/images/logo.svg" alt="EXOTICA" width="120">
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="navbar-nav gap-3">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="cars.html" class="nav-link">Fleet</a></li>
-                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                <li class="nav-item mt-4">
-                    <a href="login.html" class="btn btn-primary w-100">Login / Signup</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <main>
+    <main class="mt-5 pt-5">
         <!-- Page Header -->
         <section class="bg-deep text-white py-5 mt-5">
             <div class="container text-center pt-5">
@@ -71,12 +29,17 @@
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-md-6">
-                        <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="img-fluid w-100 shadow-lg" alt="Our Showroom">
+                        <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            class="img-fluid w-100 shadow-lg" alt="Our Showroom">
                     </div>
                     <div class="col-md-6">
                         <h2 class="mb-4">Where Passion Meets Performance</h2>
-                        <p class="lead opacity-75">Founded in 2018, EXOTICA has grown from a private collection to the world's premier luxury car rental service.</p>
-                        <p class="opacity-75">We believe that driving shouldn't just be a mode of transport, but an emotional experience. Our curated fleet represents the pinnacle of automotive engineering, from the raw power of Italian supercars to the refined elegance of British luxury sedans.</p>
+                        <p class="lead opacity-75">Founded in 2018, EXOTICA has grown from a private collection to the
+                            world's premier luxury car rental service.</p>
+                        <p class="opacity-75">We believe that driving shouldn't just be a mode of transport, but an
+                            emotional experience. Our curated fleet represents the pinnacle of automotive engineering,
+                            from the raw power of Italian supercars to the refined elegance of British luxury sedans.
+                        </p>
                         <div class="row mt-5">
                             <div class="col-6">
                                 <h3 class="text-gold mb-0">500+</h3>
@@ -96,25 +59,28 @@
         <section class="bg-light dark:bg-dark py-5">
             <div class="container">
                 <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="p-4 border border-secondary text-center">
-                            <i class="bi bi-shield-check text-gold display-5 mb-3"></i>
+                    <div class="col-md-6">
+                        <div class="value-card value-bg-1">
                             <h4>Uncompromised Safety</h4>
-                            <p class="opacity-75">Every vehicle undergoes a rigorous 100-point inspection before every rental.</p>
+                            <p>Every vehicle undergoes a rigorous 100-point inspection before every rental.</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="p-4 border border-secondary text-center">
-                            <i class="bi bi-clock-history text-gold display-5 mb-3"></i>
+                    <div class="col-md-6">
+                        <div class="value-card value-bg-2">
                             <h4>24/7 Concierge</h4>
-                            <p class="opacity-75">Our team of specialists is available around the clock to assist your journey.</p>
+                            <p>Our team of specialists is available around the clock to assist your journey.</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="p-4 border border-secondary text-center">
-                            <i class="bi bi-star text-gold display-5 mb-3"></i>
+                    <div class="col-md-6">
+                        <div class="value-card value-bg-3">
                             <h4>Bespoke Experience</h4>
-                            <p class="opacity-75">Tailored rental packages designed to meet your specific luxury needs.</p>
+                            <p>Tailored rental packages designed to meet your specific luxury needs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="value-card value-bg-4">
+                            <h4>Elite Fleet</h4>
+                            <p>Only the newest and most exclusive models from the world's leading manufacturers.</p>
                         </div>
                     </div>
                 </div>
@@ -122,42 +88,10 @@
         </section>
     </main>
 
-    <!-- Footer (Identical) -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-md-4 footer-column">
-                    <img src="assets/images/logo.svg" alt="EXOTICA" width="150" class="mb-4">
-                    <p class="opacity-50">Providing unparalleled luxury car rental experiences since 2018. Based in the heart of the city, serving worldwide elitists.</p>
-                </div>
-                <div class="col-md-2 footer-column">
-                    <h4>Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="blog.html">Our Journal</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2 footer-column">
-                    <h4>Fleet</h4>
-                    <ul class="footer-links">
-                        <li><a href="cars.html">Supercars</a></li>
-                        <li><a href="cars.html">Luxury Sedans</a></li>
-                        <li><a href="cars.html">Sport SUVs</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 footer-column">
-                    <h4>Office</h4>
-                    <p class="opacity-50 mb-4">123 Luxury Drive, Beverly Hills<br>California, CA 90210</p>
-                    <p class="opacity-50">Support: +1 (555) 000-EXOTIC</p>
-                </div>
-            </div>
-            <hr class="my-5 border-secondary">
-            <p class="text-center opacity-50 small">&copy; 2026 EXOTICA CAR RENTAL. ALL RIGHTS RESERVED.</p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
