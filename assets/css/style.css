@@ -1042,3 +1042,36 @@ body.dark-mode .auth-toggles-wrapper .theme-toggle,
 body.dark-mode .auth-toggles-wrapper .rtl-toggle {
     background: rgba(255, 255, 255, 0.05);
 }
+
+/* Dark Mode Utility Classes (Tailwind-like support) */
+.dark-mode .dark\:bg-dark {
+    background-color: var(--bg-dark) !important;
+}
+
+.dark-mode .dark\:text-light {
+    color: var(--text-dark) !important;
+}
+
+.dark-mode .dark\:bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
+.dark-mode .dark\:border-secondary {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Specific component overrides for dark mode */
+.dark-mode .bg-white {
+    background-color: var(--bg-dark) !important;
+}
+
+.dark-mode .table {
+    --bs-table-bg: var(--bg-dark);
+    --bs-table-color: var(--text-dark);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .list-group-item {
+    background-color: transparent !important;
+    color: var(--text-dark) !important;
+}

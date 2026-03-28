@@ -3,8 +3,14 @@
    Main JavaScript Logic - Standardized Components Version
 */
 
+// 1. Immediate Theme Application (Minimizes Flicker)
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Check if we need to load common components
+    // 2. Check if we need to load common components
     const isExcludedPage = window.location.pathname.includes('login.html') || 
                           window.location.pathname.includes('register.html') || 
                           window.location.pathname.includes('dashboard.html');
@@ -92,24 +98,36 @@ function initThemeManager() {
     const body = document.body;
     const savedTheme = localStorage.getItem('theme');
     
-    if (savedTheme === 'dark') {
+    // Synchronize Initial State
+    const isDark = savedTheme === 'dark';
+    if (isDark) {
         body.classList.add('dark-mode');
-        updateThemeIcon(true);
+    } else {
+        body.classList.remove('dark-mode');
     }
+    updateThemeIcon(isDark);
 
-    themeToggle.addEventListener('click', () => {
+    // Remove existing listener to prevent duplicates if re-initialized
+    const newToggle = themeToggle.cloneNode(true);
+    themeToggle.parentNode.replaceChild(newToggle, themeToggle);
+
+    newToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
-        const isDark = body.classList.contains('dark-mode');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        updateThemeIcon(isDark);
+        const currentlyDark = body.classList.contains('dark-mode');
+        localStorage.setItem('theme', currentlyDark ? 'dark' : 'light');
+        updateThemeIcon(currentlyDark);
     });
 
     function updateThemeIcon(isDark) {
-        const icon = themeToggle.querySelector('i');
+        const icon = newToggle.querySelector('i');
+        if (!icon) return;
+        
         if (isDark) {
-            icon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+            icon.classList.remove('bi-moon-fill');
+            icon.classList.add('bi-sun-fill');
         } else {
-            icon.classList.replace('bi-sun-fill', 'bi-moon-fill');
+            icon.classList.remove('bi-sun-fill');
+            icon.classList.add('bi-moon-fill');
         }
     }
 }
