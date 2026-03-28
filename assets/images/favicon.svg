@@ -1,11 +1,16 @@
-<svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
-  <!-- Style -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <style>
-    .brand-text { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 24px; fill: #C9A14A; }
-    .logo-icon { fill: #C9A14A; }
+    .icon { fill: #946167; }
+    .wheel { fill: none; stroke: #946167; stroke-width: 2.5; }
   </style>
-  <!-- Car Icon (Stylized silhouette) -->
-  <path class="logo-icon" d="M10 35 L15 25 Q20 20 30 20 L45 20 Q55 20 60 25 L65 35 Z M18 35 A3 3 0 1 0 24 35 A3 3 0 1 0 18 35 M51 35 A3 3 0 1 0 57 35 A3 3 0 1 0 51 35" />
-  <!-- Brand Text -->
-  <text x="75" y="32" class="brand-text">EXOTICA</text>
+
+<!-- Car Body -->
+  <rect x="3" y="14" width="16" height="4" class="icon"/>
+  <rect x="7" y="9" width="9" height="5" class="icon"/>
+  <rect x="19" y="14" width="6" height="3" class="icon"/>
+
+  <!-- Wheels -->
+  <circle cx="9" cy="20" r="3" class="wheel"/>
+  <circle cx="19" cy="20" r="3" class="wheel"/>
+
 </svg>

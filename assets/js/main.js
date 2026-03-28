@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 2. Initialize Core Logic
     initThemeManager();
+    initRTLManager(); // Added RTL Manager
     initScrollEffects();
     initSmoothScrolling();
     initBackToTop();
@@ -33,6 +34,9 @@ async function initCommonComponents() {
             const html = await response.text();
             headerPlaceholder.innerHTML = html;
             setActiveNavLink();
+            // Re-init managers after common components loaded
+            initThemeManager();
+            initRTLManager();
         } catch (error) {
             console.error('Error loading header:', error);
         }
@@ -167,4 +171,48 @@ function initBackToTop() {
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+}
+
+/**
+ * RTL Management Logic
+ */
+function initRTLManager() {
+    const rtlToggle = document.getElementById('rtl-toggle');
+    const bootstrapCss = document.getElementById('bootstrap-css');
+    const html = document.documentElement;
+    
+    // Initial Setup from LocalStorage
+    const savedRTL = localStorage.getItem('rtl') === 'true';
+    if (savedRTL) {
+        applyRTL(true);
+    }
+
+    if (!rtlToggle) return;
+
+    // Remove existing listeners to avoid duplicates if re-inited
+    const newToggle = rtlToggle.cloneNode(true);
+    rtlToggle.parentNode.replaceChild(newToggle, rtlToggle);
+
+    newToggle.addEventListener('click', () => {
+        const isCurrentlyRTL = html.getAttribute('dir') === 'rtl';
+        applyRTL(!isCurrentlyRTL);
+    });
+
+    function applyRTL(enable) {
+        if (enable) {
+            html.setAttribute('dir', 'rtl');
+            html.setAttribute('lang', 'ar');
+            if (bootstrapCss) {
+                bootstrapCss.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css';
+            }
+            localStorage.setItem('rtl', 'true');
+        } else {
+            html.setAttribute('dir', 'ltr');
+            html.setAttribute('lang', 'en');
+            if (bootstrapCss) {
+                bootstrapCss.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css';
+            }
+            localStorage.setItem('rtl', 'false');
+        }
+    }
 }

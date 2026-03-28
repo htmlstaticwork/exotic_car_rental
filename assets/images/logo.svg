@@ -1,11 +1,19 @@
 <svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
   <!-- Style -->
   <style>
-    .brand-text { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 24px; fill: #946167; }
+    .brand-text { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 18px; fill: #946167; letter-spacing: 1.2px; }
     .logo-icon { fill: #946167; }
+    .icon { fill: #946167; }
+    .wheel { fill: none; stroke: #946167; stroke-width: 2.5; }
   </style>
-  <!-- Car Icon (Stylized silhouette) -->
-  <path class="logo-icon" d="M10 35 L15 25 Q20 20 30 20 L45 20 Q55 20 60 25 L65 35 Z M18 35 A3 3 0 1 0 24 35 A3 3 0 1 0 18 35 M51 35 A3 3 0 1 0 57 35 A3 3 0 1 0 51 35" />
+  <!-- Car Body (Block Style like your drawing) -->
+  <rect x="10" y="22" width="55" height="10" class="icon"/>
+  <rect x="25" y="12" width="30" height="12" class="icon"/>
+  <rect x="65" y="22" width="20" height="8" class="icon"/>
+
+  <!-- Wheels -->
+  <circle cx="30" cy="35" r="6" class="wheel"/>
+  <circle cx="65" cy="35" r="6" class="wheel"/>
   <!-- Brand Text -->
-  <text x="75" y="32" class="brand-text">EXOTICA</text>
+  <text x="95" y="32" class="brand-text">EXOTICA</text>
 </svg>

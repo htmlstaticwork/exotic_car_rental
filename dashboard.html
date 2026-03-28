@@ -1,46 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | EXOTICA Exotic Car Rental</title>
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link id="bootstrap-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .dashboard-wrapper { display: flex; min-height: 100vh; }
-        .sidebar { width: 260px; background: var(--secondary); transition: var(--transition); z-index: 1001; }
-        .main-content { flex: 1; background: #f4f4f4; padding: 2rem; transition: var(--transition); }
-        body.dark-mode .main-content { background: #000; }
-        .sidebar-link { display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem; color: rgba(255,255,255,0.7); text-decoration: none; border-left: 4px solid transparent; }
-        .sidebar-link.active { color: var(--primary); background: rgba(201, 161, 74, 0.1); border-color: var(--primary); }
-        .sidebar-link:hover { color: white; background: rgba(255,255,255,0.05); }
+        .dashboard-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: var(--secondary);
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .main-content {
+            flex: 1;
+            background: #f4f4f4;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        body.dark-mode .main-content {
+            background: #000;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-link.active {
+            color: var(--primary);
+            background: rgba(201, 161, 74, 0.1);
+            border-color: var(--primary);
+        }
+
+        .sidebar-link:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+        }
 
         @media (max-width: 1100px) {
-            .sidebar { position: fixed; transform: translateX(-100%); width: 100%; height: 100%; }
-            .sidebar.active { transform: translateX(0); }
-            .dashboard-nav-mobile { display: flex !important; }
+            .sidebar {
+                position: fixed;
+                transform: translateX(-100%);
+                width: 100%;
+                height: 100%;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .dashboard-nav-mobile {
+                display: flex !important;
+            }
+
+            .sidebar nav {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-top: 5rem;
+            }
+
+            .sidebar-link {
+                width: 100%;
+                padding: 1.25rem 2rem;
+            }
         }
-        .dashboard-nav-mobile { display: none; align-items: center; justify-content: space-between; padding: 1rem; background: var(--secondary); margin-bottom: 2rem; }
+
+        .dashboard-nav-mobile {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        #closeSidebar {
+            display: none;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1002;
+            transition: var(--transition);
+        }
+
+        #closeSidebar:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 1100px) {
+            #closeSidebar {
+                display: block;
+            }
+        }
+
+        /* Sidebar Toggles Styling */
+        .sidebar .theme-toggle,
+        .sidebar .rtl-toggle {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--primary);
+            width: 45px;
+            height: 45px;
+        }
+
+        .sidebar .theme-toggle:hover,
+        .sidebar .rtl-toggle:hover {
+            background: var(--primary);
+            color: white;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="dashboard-wrapper">
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
-            <div class="p-4 border-bottom border-secondary mb-4 text-center">
-                <img src="assets/images/logo.svg" alt="EXOTICA" width="120">
-            </div>
+            <button id="closeSidebar" title="Close Menu"><i class="bi bi-x-lg"></i></button>
             <nav>
-                <a href="#" class="sidebar-link active" data-target="analytics"><i class="bi bi-grid-fill"></i> Analytics</a>
-                <a href="#" class="sidebar-link" data-target="bookings"><i class="bi bi-calendar-check"></i> Bookings</a>
-                <a href="#" class="sidebar-link" data-target="cars"><i class="bi bi-car-front"></i> Fleet Mgmt</a>
-                <a href="#" class="sidebar-link" data-target="users"><i class="bi bi-people"></i> Users</a>
+                <a href="#" class="sidebar-link active" data-target="analytics"><i class="bi bi-grid-fill"></i>
+                    Analytics</a>
+                <a href="#" class="sidebar-link" data-target="bookings"><i class="bi bi-calendar-check"></i>
+                    Bookings & Users</a>
                 <a href="#" class="sidebar-link" data-target="reports"><i class="bi bi-graph-up-arrow"></i> Reports</a>
-                <div class="mt-5 pt-5">
-                    <a href="index.html" class="sidebar-link text-danger"><i class="bi bi-box-arrow-left"></i> Logout</a>
+
+                <div class="mt-4 pt-4 border-top border-secondary px-4 d-flex justify-content-start gap-3 w-100">
+                    <div id="theme-toggle" class="theme-toggle" title="Toggle Theme"><i class="bi bi-moon-fill"></i>
+                    </div>
+                    <div id="rtl-toggle" class="rtl-toggle" title="Toggle RTL"><i class="bi bi-translate"></i></div>
+                </div>
+
+                <div class="mt-4 w-100">
+                    <a href="index.html" class="sidebar-link text-danger"><i class="bi bi-box-arrow-left"></i>
+                        Logout</a>
                 </div>
             </nav>
         </aside>
@@ -49,7 +166,7 @@
         <main class="main-content">
             <!-- Mobile Toggle -->
             <div class="dashboard-nav-mobile">
-                <img src="assets/images/logo.svg" alt="LOGO" width="80">
+                <a href="index.html"><img src="assets/images/logo.svg" alt="LOGO" width="200"></a>
                 <button class="btn text-white fs-2" id="sidebarToggle"><i class="bi bi-list"></i></button>
             </div>
 
@@ -60,8 +177,9 @@
                     <p class="small opacity-50">Welcome back, Administrator</p>
                 </div>
                 <div class="d-flex gap-3 align-items-center">
-                    <div id="theme-toggle" class="theme-toggle fs-4"><i class="bi bi-moon-fill"></i></div>
-                    <img src="https://ui-avatars.com/api/?name=Admin&background=C9A14A&color=fff" class="rounded-circle" width="45" alt="Avatar">
+                    <!-- Toggles moved to sidebar for Dashboard -->
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=C9A14A&color=fff" class="rounded-circle"
+                        width="45" alt="Avatar">
                 </div>
             </div>
 
@@ -134,8 +252,126 @@
                 </div>
 
                 <!-- Placeholder for other sections -->
-                <div class="section-content d-none" id="bookings"><h3>Bookings Management Content</h3></div>
-                <div class="section-content d-none" id="cars"><h3>Fleet Inventory Content</h3></div>
+                <!-- Bookings Section -->
+                <div class="section-content d-none" id="bookings">
+                    <!-- Bookings Table -->
+                    <div class="bg-white dark:bg-dark border border-secondary p-4 mb-4">
+                        <h4 class="mb-4">Upcoming Reservations</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Car</th>
+                                        <th>Client</th>
+                                        <th>Period</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#BK-9914</td>
+                                        <td class="fw-bold">Ferrari 488 Pista</td>
+                                        <td>John Doe</td>
+                                        <td>Mar 28 - Mar 30</td>
+                                        <td><span class="badge bg-success">Confirmed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#BK-9915</td>
+                                        <td class="fw-bold">Lambo Huracán EVO</td>
+                                        <td>Jane Smith</td>
+                                        <td>Apr 01 - Apr 02</td>
+                                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#BK-9916</td>
+                                        <td class="fw-bold">Rolls-Royce Ghost</td>
+                                        <td>Mike Ross</td>
+                                        <td>Apr 05 - Apr 08</td>
+                                        <td><span class="badge bg-info">Active</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Merged Users List -->
+                    <div class="bg-white dark:bg-dark border border-secondary p-4">
+                        <h4 class="mb-4">Recent Customers</h4>
+                        <div class="list-group list-group-flush">
+                            <div
+                                class="list-group-item d-flex justify-content-between align-items-center bg-transparent px-0 border-secondary text-dark dark:text-light">
+                                <div>
+                                    <h6 class="mb-0">John Doe</h6><small class="text-muted">john@example.com</small>
+                                </div>
+                                <span class="badge bg-primary">VIP Member</span>
+                            </div>
+                            <div
+                                class="list-group-item d-flex justify-content-between align-items-center bg-transparent px-0 border-secondary text-dark dark:text-light">
+                                <div>
+                                    <h6 class="mb-0">Jane Smith</h6><small class="text-muted">jane@test.com</small>
+                                </div>
+                                <span class="badge bg-secondary">Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fleet Management Section -->
+                <div class="section-content d-none" id="cars">
+                    <h4 class="mb-4">Fleet Inventory</h4>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded bg-white dark:bg-dark shadow-sm h-100">
+                                <img src="assets/images/Ferrari 488 Pista.jfif" class="img-fluid rounded mb-3"
+                                    alt="Car">
+                                <h5 class="mb-2">Ferrari 488 Pista</h5>
+                                <span class="badge bg-success mb-2">Available</span>
+                                <p class="small text-muted mb-0">Location: Miami Hub</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded bg-white dark:bg-dark shadow-sm h-100">
+                                <img src="assets/images/Lambo Huracán EVO.jfif" class="img-fluid rounded mb-3"
+                                    alt="Car">
+                                <h5 class="mb-2">Lambo Huracán EVO</h5>
+                                <span class="badge bg-warning text-dark mb-2">Booked</span>
+                                <p class="small text-muted mb-0">Due: Mar 30</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded bg-white dark:bg-dark shadow-sm h-100">
+                                <img src="assets/images/Rolls-Royce Ghost.jfif" class="img-fluid rounded mb-3"
+                                    alt="Car">
+                                <h5 class="mb-2">Rolls-Royce Ghost</h5>
+                                <span class="badge bg-info mb-2">In Service</span>
+                                <p class="small text-muted mb-0">Next Scan: Apr 05</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Reports Section -->
+                <div class="section-content d-none" id="reports">
+                    <h4 class="mb-4">Performance Analytics</h4>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white dark:bg-dark border border-secondary text-center h-100">
+                                <i class="bi bi-bar-chart-fill fs-1 text-gold mb-3 d-block"></i>
+                                <h5>Monthly Growth</h5>
+                                <p class="display-6 fw-bold text-success">+15.4%</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white dark:bg-dark border border-secondary text-center h-100">
+                                <i class="bi bi-pie-chart-fill fs-1 text-gold mb-3 d-block"></i>
+                                <h5>User Retension</h5>
+                                <p class="display-6 fw-bold text-gold">78%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
@@ -147,7 +383,11 @@
     <!-- Dashboard Specific JS -->
     <script>
         document.getElementById('sidebarToggle')?.addEventListener('click', () => {
-            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('sidebar').classList.add('active');
+        });
+
+        document.getElementById('closeSidebar')?.addEventListener('click', () => {
+            document.getElementById('sidebar').classList.remove('active');
         });
 
         // Tab Switching Logic
@@ -155,7 +395,7 @@
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const target = link.getAttribute('data-target');
-                
+
                 // Update Sidebar
                 document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
                 link.classList.add('active');
@@ -172,4 +412,5 @@
         });
     </script>
 </body>
+
 </html>
