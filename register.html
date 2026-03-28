@@ -11,32 +11,42 @@
 </head>
 <body class="bg-deep d-flex align-items-center vh-100">
 
+    <div class="auth-toggles-wrapper">
+        <div class="rtl-toggle" id="rtl-toggle" title="Switch Language Direction">
+            <i class="bi bi-translate"></i>
+        </div>
+        <div class="theme-toggle" id="theme-toggle">
+            <i class="bi bi-moon-fill"></i>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="text-center mb-5">
-                    <a href="index.html"><img src="assets/images/logo.svg" alt="EXOTICA" width="180"></a>
+                <div class="text-center mb-4">
+                    <a href="index.html" class="opacity-75"><img src="assets/images/logo.svg" alt="EXOTICA" width="160"></a>
                 </div>
-                <div class="p-5 bg-dark border border-secondary text-white shadow-lg">
+                <div class="p-4 bg-dark border border-secondary text-white shadow-lg">
                     <h2 class="mb-4 text-center">Join the Elite</h2>
-                    <p class="text-center opacity-50 mb-5">Experience the world's most exclusive fleet.</p>
                     <form action="dashboard.html">
-                        <div class="row g-3 mb-3">
-                            <div class="col-md-6">
-                                <label class="small mb-1">First Name</label>
-                                <input type="text" class="form-control bg-transparent border-secondary text-white" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="small mb-1">Last Name</label>
-                                <input type="text" class="form-control bg-transparent border-secondary text-white" required>
-                            </div>
+                        <div class="mb-3">
+                            <label class="small mb-1">First Name</label>
+                            <input type="text" class="form-control bg-transparent border-secondary text-white" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="small mb-1">Last Name</label>
+                            <input type="text" class="form-control bg-transparent border-secondary text-white" required>
                         </div>
                         <div class="mb-3">
                             <label class="small mb-1">Email Address</label>
                             <input type="email" class="form-control bg-transparent border-secondary text-white" required>
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <label class="small mb-1">Password</label>
+                            <input type="password" class="form-control bg-transparent border-secondary text-white" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="small mb-1">Confirm Password</label>
                             <input type="password" class="form-control bg-transparent border-secondary text-white" required>
                         </div>
                         <div class="form-check mb-4">
@@ -46,6 +56,21 @@
                             </label>
                         </div>
                         <button type="submit" class="btn btn-primary w-100 py-3 mb-4">Create Account</button>
+
+                        <div class="auth-separator">OR</div>
+
+                        <div class="social-login-grid mb-4">
+                            <a href="#" class="btn-social google">
+                                <i class="bi bi-google"></i> Continue with Google
+                            </a>
+                            <a href="#" class="btn-social apple">
+                                <i class="bi bi-apple"></i> Continue with Apple
+                            </a>
+                            <a href="#" class="btn-social facebook">
+                                <i class="bi bi-facebook"></i> Continue with Facebook
+                            </a>
+                        </div>
+
                         <p class="text-center small opacity-50 m-0">Already a member? <a href="login.html" class="text-gold text-decoration-none">Sign In</a></p>
                     </form>
                 </div>

@@ -952,3 +952,93 @@ body.dark-mode .blog-card {
     position: relative;
     z-index: 2;
 }
+
+/* Social Authentication Styles */
+.auth-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: var(--s-6) 0;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.auth-separator::before,
+.auth-separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-separator:not(:empty)::before {
+    margin-right: var(--s-4);
+}
+
+.auth-separator:not(:empty)::after {
+    margin-left: var(--s-4);
+}
+
+.social-login-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-3);
+    width: 100%;
+    padding: var(--s-3) var(--s-4);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn-social:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.btn-social i {
+    font-size: 18px;
+}
+
+.btn-social.google i { color: #EA4335; }
+.btn-social.apple i { color: #FFFFFF; }
+.btn-social.facebook i { color: #1877F2; }
+
+/* Floating Auth Toggles */
+.auth-toggles-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1100;
+}
+
+[dir="rtl"] .auth-toggles-wrapper {
+    right: auto;
+    left: 20px;
+}
+
+.auth-toggles-wrapper .theme-toggle,
+.auth-toggles-wrapper .rtl-toggle {
+    background: rgba(148, 97, 103, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+body.dark-mode .auth-toggles-wrapper .theme-toggle,
+body.dark-mode .auth-toggles-wrapper .rtl-toggle {
+    background: rgba(255, 255, 255, 0.05);
+}
