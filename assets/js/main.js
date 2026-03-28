@@ -104,7 +104,7 @@ function setActiveNavLink() {
 // --- 3. EVENT DELEGATION (Robust handling for dynamic elements) ---
 document.addEventListener('click', (e) => {
     // Theme Toggle Handler
-    const themeToggle = e.target.closest('#theme-toggle');
+    const themeToggle = e.target.closest('.theme-toggle');
     if (themeToggle) {
         const body = document.body;
         const html = document.documentElement;
@@ -119,7 +119,7 @@ document.addEventListener('click', (e) => {
     }
 
     // RTL Toggle Handler
-    const rtlToggle = e.target.closest('#rtl-toggle');
+    const rtlToggle = e.target.closest('.rtl-toggle');
     if (rtlToggle) {
         const html = document.documentElement;
         const isCurrentlyRTL = html.getAttribute('dir') === 'rtl';

@@ -14,6 +14,8 @@
         .dashboard-wrapper {
             display: flex;
             min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         .sidebar {
@@ -21,13 +23,16 @@
             background: var(--secondary);
             transition: var(--transition);
             z-index: 1001;
+            flex-shrink: 0;
         }
 
         .main-content {
             flex: 1;
+            min-width: 0;
             background: #f4f4f4;
             padding: 2rem;
             transition: var(--transition);
+            overflow-x: hidden;
         }
 
         body.dark-mode .main-content {
@@ -133,6 +138,17 @@
             background: var(--primary);
             color: white;
         }
+
+        .sidebar-logo {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 1100px) {
+            .sidebar-logo {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -142,6 +158,9 @@
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <button id="closeSidebar" title="Close Menu"><i class="bi bi-x-lg"></i></button>
+            <div class="sidebar-logo">
+                <a href="index.html"><img src="assets/images/logo.svg" alt="LOGO" width="180"></a>
+            </div>
             <nav>
                 <a href="#" class="sidebar-link active" data-target="analytics"><i class="bi bi-grid-fill"></i>
                     Analytics</a>
@@ -216,9 +235,9 @@
 
                     <div class="bg-white dark:bg-dark border border-secondary p-4 mb-4">
                         <h4 class="mb-4">Recent Bookings</h4>
-                        <div class="table-responsive">
-                            <table class="table align-middle">
-                                <thead class="table-dark">
+                        <div class="table-responsive shadow-sm">
+                            <table class="table table-hover align-middle">
+                                <thead>
                                     <tr>
                                         <th>Car Model</th>
                                         <th>User</th>
@@ -257,9 +276,9 @@
                     <!-- Bookings Table -->
                     <div class="bg-white dark:bg-dark border border-secondary p-4 mb-4">
                         <h4 class="mb-4">Upcoming Reservations</h4>
-                        <div class="table-responsive">
+                        <div class="table-responsive shadow-sm">
                             <table class="table table-hover align-middle">
-                                <thead class="table-dark">
+                                <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Car</th>
@@ -302,14 +321,14 @@
                             <div
                                 class="list-group-item d-flex justify-content-between align-items-center bg-transparent px-0 border-secondary text-dark dark:text-light">
                                 <div>
-                                    <h6 class="mb-0">John Doe</h6><small class="text-muted">john@example.com</small>
+                                    <h6 class="mb-0">John Doe</h6><small class="mb-4">john@example.com</small>
                                 </div>
                                 <span class="badge bg-primary">VIP Member</span>
                             </div>
                             <div
                                 class="list-group-item d-flex justify-content-between align-items-center bg-transparent px-0 border-secondary text-dark dark:text-light">
                                 <div>
-                                    <h6 class="mb-0">Jane Smith</h6><small class="text-muted">jane@test.com</small>
+                                    <h6 class="mb-0">Jane Smith</h6><small class="mb-4">jane@test.com</small>
                                 </div>
                                 <span class="badge bg-secondary">Verified</span>
                             </div>
