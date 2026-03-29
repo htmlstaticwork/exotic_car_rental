@@ -149,6 +149,23 @@
                 display: none;
             }
         }
+        /* dark: utility classes support */
+        body.dark-mode .dark\:bg-dark {
+            background-color: var(--secondary) !important;
+            color: white !important;
+        }
+
+        body.dark-mode .dark\:text-light {
+            color: var(--text-dark) !important;
+        }
+
+        body.dark-mode .border-secondary {
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        body.dark-mode .dark\:bg-dark .text-muted {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
     </style>
 </head>
 
