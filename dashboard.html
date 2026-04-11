@@ -149,6 +149,7 @@
                 display: none;
             }
         }
+
         /* dark: utility classes support */
         body.dark-mode .dark\:bg-dark {
             background-color: var(--secondary) !important;
@@ -165,6 +166,24 @@
 
         body.dark-mode .dark\:bg-dark .text-muted {
             color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        /* Toggle Visibility Logic */
+        .header-toggles {
+            display: flex;
+            gap: 1rem;
+        }
+
+        @media (max-width: 1100px) {
+            .header-toggles {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 1101px) {
+            .sidebar-toggles-container {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -185,10 +204,10 @@
                     Bookings & Users</a>
                 <a href="#" class="sidebar-link" data-target="reports"><i class="bi bi-graph-up-arrow"></i> Reports</a>
 
-                <div class="mt-4 pt-4 border-top border-secondary px-4 d-flex justify-content-start gap-3 w-100">
-                    <div id="theme-toggle" class="theme-toggle" title="Toggle Theme"><i class="bi bi-moon-fill"></i>
+                <div class="sidebar-toggles-container mt-4 pt-4 border-top border-secondary px-4 d-flex justify-content-start gap-3 w-100">
+                    <div class="theme-toggle" title="Toggle Theme"><i class="bi bi-moon-fill"></i>
                     </div>
-                    <div id="rtl-toggle" class="rtl-toggle" title="Toggle RTL"><i class="bi bi-translate"></i></div>
+                    <div class="rtl-toggle" title="Toggle RTL">RTL</div>
                 </div>
 
                 <div class="mt-4 w-100">
@@ -213,7 +232,10 @@
                     <p class="small opacity-50">Welcome back, Administrator</p>
                 </div>
                 <div class="d-flex gap-3 align-items-center">
-                    <!-- Toggles moved to sidebar for Dashboard -->
+                    <div class="header-toggles">
+                        <div class="theme-toggle" title="Toggle Theme"><i class="bi bi-moon-fill"></i></div>
+                        <div class="rtl-toggle" title="Toggle RTL">RTL</div>
+                    </div>
                     <img src="https://ui-avatars.com/api/?name=Admin&background=C9A14A&color=fff" class="rounded-circle"
                         width="45" alt="Avatar">
                 </div>
