@@ -869,6 +869,18 @@ body.dark-mode .bg-light .text-muted {
     color: var(--text-light) !important;
 }
 
+body.bg-deep.d-flex {
+    min-height: 100vh;
+    padding: var(--s-10) 0;
+}
+
+@media (max-width: 768px) {
+    body.bg-deep.d-flex {
+        align-items: flex-start !important;
+        padding-top: 80px;
+    }
+}
+
 body.dark-mode .bg-deep,
 body.dark-mode.bg-deep {
     background-color: var(--secondary) !important;
@@ -1352,9 +1364,23 @@ body.dark-mode .btn-social:hover {
     z-index: 1100;
 }
 
+@media (max-width: 768px) {
+    .auth-toggles-wrapper {
+        top: 15px;
+        right: 15px;
+    }
+}
+
 [dir="rtl"] .auth-toggles-wrapper {
     right: auto;
     left: 20px;
+}
+
+@media (max-width: 768px) {
+    [dir="rtl"] .auth-toggles-wrapper {
+        left: 15px;
+        right: auto;
+    }
 }
 
 .auth-toggles-wrapper .theme-toggle,
