@@ -77,7 +77,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     syncInitialStates(); // Synchronize all UI states
     initScrollEffects();
     initSmoothScrolling();
-    initBackToTop();
+    
+    if (!isExcludedPage) {
+        initBackToTop();
+    }
 });
 
 /**
