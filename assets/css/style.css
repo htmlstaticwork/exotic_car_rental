@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
 /* 
    EXOTICA - Exotic Car Rental Website
    Design System & Main Styles
    Strict adherence to "MARCH VERSION" rules
 */
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
 
 :root {
     /* Color Palette */
@@ -1335,7 +1335,7 @@ body.dark-mode .btn-social:hover {
 }
 
 .btn-social.apple i {
-    color: #FFFFFF;
+    color: inherit; /* Contextual color: inherits from .btn-social (black in light, white in dark) */
 }
 
 .btn-social.facebook i {
@@ -1345,7 +1345,7 @@ body.dark-mode .btn-social:hover {
 /* Floating Auth Toggles */
 .auth-toggles-wrapper {
     position: fixed;
-    top: 50px;
+    top: 20px;
     right: 20px;
     display: flex;
     gap: 10px;

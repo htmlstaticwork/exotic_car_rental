@@ -3,6 +3,44 @@
    Main JavaScript Logic - Standardized Components Version
 */
 
+// --- 0. TRANSLATIONS ---
+const translations = {
+    'en': {
+        'home-1': 'Home 1',
+        'home-2': 'Home 2',
+        'about': 'About',
+        'cars': 'Fleet',
+        'services': 'Services',
+        'blog': 'Journal',
+        'contact': 'Contact',
+        'signin': 'Sign-In',
+        'dashboard': 'Dashboard',
+        'rtl': 'RTL',
+        'welcome': 'Welcome Back',
+        'join': 'Join the Elite',
+        'login_signup': 'Login / Signup',
+        'preferences': 'Preferences',
+        'menu': 'MENU'
+    },
+    'ar': {
+        'home-1': 'الرئيسية 1',
+        'home-2': 'الرئيسية 2',
+        'about': 'من نحن',
+        'cars': 'الأسطول',
+        'services': 'الخدمات',
+        'blog': 'المجلة',
+        'contact': 'اتصل بنا',
+        'signin': 'تسجيل الدخول',
+        'dashboard': 'لوحة القيادة',
+        'rtl': 'English',
+        'welcome': 'مرحباً بك مجدداً',
+        'join': 'انضم إلى النخبة',
+        'login_signup': 'الدخول / الاشتراك',
+        'preferences': 'التفضيلات',
+        'menu': 'القائمة'
+    }
+};
+
 // --- 1. IMMEDIATE INITIALIZATION (Prevents Flicker & Logic Errors) ---
 // Note: This runs immediately as the script is loaded.
 (function() {
@@ -171,6 +209,7 @@ function updateAllThemeIcons(isDark) {
 function applyRTL(enable) {
     const html = document.documentElement;
     const bootstrapCss = document.getElementById('bootstrap-css');
+    const lang = enable ? 'ar' : 'en';
     
     if (enable) {
         html.setAttribute('dir', 'rtl');
@@ -188,7 +227,64 @@ function applyRTL(enable) {
         localStorage.setItem('rtl', 'false');
     }
     
-    // Update any RTL specific components or icons if needed
+    // Update Text Content for Headers & Nav
+    updateLocalizedText(lang);
+}
+
+/**
+ * Updates UI text based on the current language
+ */
+function updateLocalizedText(lang) {
+    const t = translations[lang];
+    
+    // 1. Navigation Links
+    document.querySelectorAll('.nav-link[data-page]').forEach(link => {
+        const page = link.getAttribute('data-page');
+        if (t[page]) {
+            // Keep arrow icon in mobile if present
+            if (link.closest('.offcanvas')) {
+                const isActive = link.classList.contains('active');
+                link.textContent = t[page];
+                // Note: The arrow is handled by CSS ::after
+            } else {
+                link.textContent = t[page];
+            }
+        }
+    });
+
+    // 2. Action Buttons in Header
+    document.querySelectorAll('.header-actions .btn').forEach(btn => {
+        if (btn.getAttribute('href') === 'login.html') btn.textContent = t['signin'];
+        if (btn.getAttribute('href') === 'dashboard.html') btn.textContent = t['dashboard'];
+    });
+
+    // 3. Offcanvas Elements
+    const ocTitle = document.querySelector('.offcanvas-title');
+    if (ocTitle) ocTitle.textContent = t['menu'];
+    
+    const prefSpan = document.querySelector('.mobile-menu-footer span');
+    if (prefSpan) prefSpan.textContent = t['preferences'];
+
+    document.querySelectorAll('.mobile-menu-footer .btn').forEach(btn => {
+        if (btn.getAttribute('href') === 'login.html') btn.textContent = t['login_signup'];
+        if (btn.getAttribute('href') === 'dashboard.html') btn.textContent = t['dashboard'];
+    });
+
+    // 4. RTL Toggles
+    document.querySelectorAll('.rtl-toggle').forEach(toggle => {
+        toggle.textContent = t['rtl'];
+    });
+
+    // 5. Auth Headers (Contextual)
+    const authHeader = document.querySelector('.auth-card h2');
+    if (authHeader) {
+        // Use element presence or more robust pathname check
+        const isLogin = window.location.pathname.toLowerCase().includes('login');
+        const isRegister = window.location.pathname.toLowerCase().includes('register');
+        
+        if (isLogin) authHeader.textContent = t['welcome'];
+        else if (isRegister) authHeader.textContent = t['join'];
+    }
 }
 
 /**
