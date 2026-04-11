@@ -927,6 +927,56 @@ body.dark-mode .bg-deep .text-muted {
     color: rgba(255, 255, 255, 0.7) !important;
 }
 
+/* Brands Section Enhancements */
+.brand-row {
+    transition: var(--transition);
+}
+
+.brand-item {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0.5;
+    filter: grayscale(100%);
+    cursor: default;
+    padding: var(--s-4) var(--s-2);
+}
+
+.brand-item:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: translateY(-5px);
+}
+
+.brand-item img {
+    transition: transform 0.4s ease;
+    max-height: 35px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-logo-wrapper {
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.brand-item span {
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+body.dark-mode .brand-item span {
+    color: #FFFFFF;
+}
+
+.brand-item:hover span {
+    color: var(--primary);
+}
+
 /* CTA Section Theme Awareness */
 .cta-section .form-control {
     background: #FFFFFF !important;
